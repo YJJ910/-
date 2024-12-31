@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>輔大教室預約系統</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin:0;
+            padding:0;
+            text-align: center;
+        }
+         .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            height: 100px;
+            background-color:rgb(123, 123, 123);
+        }
+
+        .center-text {
+            font-size: 50px;
+            position: relative;
+            color: white;
+        }
+
+        .right-text {
+            font-size: 30px;
+            color: white;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 50%;
+            margin-right: 700px; 
+        }
+        .small-text {
+            font-size: 30px;
+            color: white;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 50%;
+            margin-left: 700px; 
+        }
+
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+            width: 500px;
+        }
+        th, td {
+            padding: 8px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        .form-section {
+            margin: 20px 0;
+        }
+        body{
+            background-image:url('12.jpg');
+            background-size: cover;
+            background-repeat: no-repeat; 
+            background-position: center; 
+            background-color: rgba(255, 255, 255, 0.5);
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+<form action="index.php" method="post">
+        <div class="container">
+            <a href="show_reservations.php"class="right-text" >返回紀錄展示</a>
+            <h1 class="center-text">輔大教室預約系統</h1>
+            <a href="setting.html"class="small-text" >設定學期區間</a>
+        </div>
+        <p>選擇預約類型:</p>
+        <select name="type" id="type" name="type">
+            <option value="平時預借">平時預借 (30天內)</option>
+            <option value="學期預借">學期預借</option>
+        </select>
+
+        <div class="form-section" name="date">
+            <label for="date">選擇日期：</label>
+            <input name="date" type="date" id="date" required>
+        </div>
+
+        <div class="form-section">
+            <label for="classroom" name="classroom">選擇場地：</label>
+            <select name="classroom" id="classroom">
+                <option value="LM200">LM200</option>
+                <option value="LM202">LM202</option>
+                <option value="SL201">SL201</option>
+                <option value="SL245">SL245</option>
+                <option value="SL246">SL246</option>
+                <option value="SL471">SL471</option>
+                <option value="SL200-1">SL200-1</option>
+                <option value="SL200-3">SL200-3</option>
+            </select>
+        </div>
+
+        <div class="form-section">
+            <label for="time" name="time">選擇時段：</label><br>
+            <input type="checkbox" name="time" value="08:30-09:50"> 08:30-09:50<br>
+            <input type="checkbox" name="time" value="10:00-11:50"> 10:00-11:50<br>
+            <input type="checkbox" name="time" value="12:00-13:20"> 12:00-13:20<br>
+            <input type="checkbox" name="time" value="13:30-14:20"> 13:30-14:20<br>
+            <input type="checkbox" name="time" value="15:30-17:20"> 15:30-17:20<br>
+            <input type="checkbox" name="time" value="17:30-19:20"> 17:30-19:20<br>
+        </div>
+
+        <button type="submit">確認預約</button>
+</form>
+</body>
+</html>

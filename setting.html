@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>設定學期區間</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+            padding-top: 60px;
+        }
+        .form-section {
+            margin: 20px 0;
+        }
+        body{
+            background-image:url('12.jpg');
+            background-size: cover;
+            background-repeat: no-repeat; 
+            background-position: center; 
+            background-color: rgba(255, 255, 255, 0.5);
+            height: 100vh;
+        }
+        .container {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgb(0, 0, 0);
+        }
+    </style>
+    
+</head>
+<body>
+<div class="container">
+    <h1>設定學期區間</h1>
+
+    <div class="form-section">
+        <label for="semesterStart">學期開始日期：</label>
+        <input type="date" id="semesterStart">
+    </div>
+
+    <div class="form-section">
+        <label for="semesterEnd">學期結束日期：</label>
+        <input type="date" id="semesterEnd">
+    </div>
+
+    <button onclick="saveSemesterDates()">儲存學期區間</button>
+</div>
+<br><br>
+<a href="index.php">返回預約系統</a>
+
+<script>
+    function saveSemesterDates() {
+        const start = document.getElementById("semesterStart").value;
+        const end = document.getElementById("semesterEnd").value;
+
+        if (new Date(start) > new Date(end)) {
+            alert("開始日期不能晚於結束日期！");
+            return;
+        }
+
+        localStorage.setItem("semesterStart", start);
+        localStorage.setItem("semesterEnd", end);
+        alert("學期區間已儲存！");
+    }
+
+    // 預設顯示當前設定的學期區間
+    document.getElementById("semesterStart").value = localStorage.getItem("semesterStart") || "2024-09-01";
+    document.getElementById("semesterEnd").value = localStorage.getItem("semesterEnd") || "2025-01-31";
+</script>
+
+</body>
+</html>
